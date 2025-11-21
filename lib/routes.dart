@@ -150,8 +150,13 @@ Route generatedRoutes(RouteSettings settings) {
       final String arg = settings.arguments as String;
       final parts = arg.split('|');
       final String paymentContent = parts.isNotEmpty ? parts.first : '';
-      final String grandTotal = parts.length > 1 ? parts.last : '0';
-      child = QRISPaymentDetailsView(paymentContent: paymentContent, grandTotal: grandTotal);
+      final String grandTotal = parts.length > 1 ? parts[1] : '0';
+      final int draftId = parts.length > 2 ? int.tryParse(parts[2]) ?? 0 : 0;
+      child = QRISPaymentDetailsView(
+        paymentContent: paymentContent,
+        grandTotal: grandTotal,
+        draftId: draftId,
+      );
       break;
 
       //   case Routes.webPaymentScreen:

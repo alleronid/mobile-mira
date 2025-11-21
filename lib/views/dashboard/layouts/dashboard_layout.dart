@@ -87,7 +87,7 @@ class _DashBoardLayoutState extends ConsumerState<DashBoardLayout> {
                                 PurchaseAndSaleGraph(
                                   dashboardInfo: data,
                                 ),
-                                Gap(40.h),
+                                Gap(10.h),
                               ],
                             ),
                           ),

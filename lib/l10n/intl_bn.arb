@@ -147,5 +147,16 @@
   "thisProducthasbatches": "এই পণ্যটির ব্যাচ এবং মেয়াদ শেষ হওয়ার তারিখ রয়েছে",
   "addPromotion": "প্রচারমূলক মূল্য যোগ করুন",
   "submit": "জমা দিন",
-  "orangePay": "অরেঞ্জ পে"
+  "orangePay": "অরেঞ্জ পে",
+  "qrisDetailTitle": "লেনদেনের বিবরণ",
+  "totalPaymentLabel": "মোট পেমেন্ট",
+  "validFor5Minutes": "৫ মিনিটের জন্য বৈধ",
+  "qrisScanInstruction": "ই-ওয়ালেট বা মোবাইল ব্যাংকিং দিয়ে পরিশোধ করতে QRIS স্ক্যান বা ডাউনলোড করুন",
+  "paymentSuccessShort": "পেমেন্ট সফল",
+  "paymentFailed": "পেমেন্ট ব্যর্থ",
+  "transactionProcessed": "লেনদেন সফলভাবে সম্পন্ন হয়েছে",
+  "ok": "ঠিক আছে",
+  "paymentSuccessPageTitle": "পেমেন্ট সফল",
+  "totalLabel": "মোট",
+  "thankYouPaymentReceived": "ধন্যবাদ, আপনার পেমেন্ট আমরা পেয়েছি।"
 }

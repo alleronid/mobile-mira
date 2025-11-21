@@ -41,8 +41,8 @@ class PurchaseAndSaleGraph extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   S.of(context).purchaseAndSale,
@@ -50,9 +50,13 @@ class PurchaseAndSaleGraph extends StatelessWidget {
                     fontSize: 16.sp,
                   ),
                 ),
-                Row(
+                Gap(8.h),
+                Wrap(
+                  spacing: 12.w,
+                  runSpacing: 6.h,
                   children: [
                     Row(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
                           width: 8,
@@ -65,12 +69,18 @@ class PurchaseAndSaleGraph extends StatelessWidget {
                           ),
                         ),
                         Gap(4.w),
-                        Text(S.of(context).purchase,
-                            style: AppTextStyle.normalBody)
+                        Flexible(
+                          child: Text(
+                            S.of(context).purchase,
+                            style: AppTextStyle.normalBody,
+                            maxLines: 2,
+                            softWrap: true,
+                          ),
+                        ),
                       ],
                     ),
-                    Gap(12.w),
                     Row(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
                           width: 8,
@@ -83,11 +93,18 @@ class PurchaseAndSaleGraph extends StatelessWidget {
                           ),
                         ),
                         Gap(4.w),
-                        Text(S.of(context).sale, style: AppTextStyle.normalBody)
+                        Flexible(
+                          child: Text(
+                            S.of(context).sale,
+                            style: AppTextStyle.normalBody,
+                            maxLines: 2,
+                            softWrap: true,
+                          ),
+                        ),
                       ],
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

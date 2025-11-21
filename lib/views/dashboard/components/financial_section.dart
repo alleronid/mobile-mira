@@ -102,13 +102,18 @@ class FinancialSection extends ConsumerWidget {
               children: [
                 Row(
                   children: [
-                    Text(
-                      getFinancials(context)[index].title,
-                      style: AppTextStyle.normalBody.copyWith(
-                        fontSize: 14.sp,
+                    Expanded(
+                      child: Text(
+                        getFinancials(context)[index].title,
+                        style: AppTextStyle.normalBody.copyWith(
+                          fontSize: 14.sp,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        softWrap: true,
                       ),
                     ),
-                    const Spacer(),
+                    Gap(8.w),
                     SvgPicture.asset(
                       getFinancials(context)[index].icon,
                       height: 24.h,

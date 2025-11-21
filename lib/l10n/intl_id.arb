@@ -8,8 +8,8 @@
   "profit": "Laba",
   "sale": "Penjualan",
   "purchase": "Pembelian",
-  "purchaseDue": "Tunggakan Pembelian",
-  "purchaseAndSale": "Pembelian dan Penjualan",
+  "purchaseDue": "Hutang Usaha",
+  "purchaseAndSale": "Pembelian & Penjualan",
   "categories": "Kategori",
   "products": "Produk",
   "brands": "Merek",
@@ -148,5 +148,16 @@
   "thisProducthasbatches": "Produk ini memiliki batch dan tanggal kedaluwarsa",
   "addPromotion": "Tambah Harga Promosi",
   "submit": "Kirim",
-  "orangePay": "Orange Pay"
+  "orangePay": "Orange Pay",
+  "qrisDetailTitle": "Detail Transaksi",
+  "totalPaymentLabel": "Total Pembayaran",
+  "validFor5Minutes": "Berlaku 5 Menit",
+  "qrisScanInstruction": "Scan atau download QRIS untuk melanjutkan pembayaran anda melalui E-Wallet atau Mobile Banking",
+  "paymentSuccessShort": "Pembayaran Sukses",
+  "paymentFailed": "Pembayaran Gagal",
+  "transactionProcessed": "Transaksi berhasil diproses",
+  "ok": "OK",
+  "paymentSuccessPageTitle": "Pembayaran Berhasil",
+  "totalLabel": "Total",
+  "thankYouPaymentReceived": "Terima kasih, pembayaran Anda telah kami terima."
 }

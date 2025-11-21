@@ -62,7 +62,7 @@ class ShowLanguage extends ConsumerWidget {
   final List<AppLanguage> language = [
     AppLanguage(name: '\ud83c\uddfa\ud83c\uddf8 ENG', value: 'en'),
     AppLanguage(name: '🇧🇩 BD', value: 'bn'),
-    // for arabic language
+    AppLanguage(name: '🇮🇩 ID', value: 'id'),
     AppLanguage(name: '🇸🇦 AR', value: 'ar'),
   ];
 }

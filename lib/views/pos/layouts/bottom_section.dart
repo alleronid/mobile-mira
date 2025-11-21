@@ -379,11 +379,12 @@ class BottomSection extends ConsumerWidget {
           if (methodName.contains('qr')) {
             final String paymentContent = response.paymentContent ?? '';
             final String grandTotal = response.grandTotal?.toString() ?? '';
+            final int draftId = response.draftId ?? 0;
             debugPrint('=============>: ');
 
             context.nav.pushNamed(
               Routes.qrisPaymentSuccess,
-              arguments: '$paymentContent|$grandTotal',
+              arguments: '$paymentContent|$grandTotal|$draftId',
             );
           } else {
             final redirect = response.redirectUrl ?? '';

@@ -2,8 +2,9 @@ class AppConstants {
   // API Constants
   // static const String baseUrl = 'https://www.sen.point-cash.org';
   // static const String baseUrl = 'https://readypos.razinsoft.com';
-  static const String baseUrl = 'https://pos.digi-nest.my.id';
-//  static const String baseUrl = 'http://192.168.0.80:8080';
+  // static const String baseUrl = 'https://pos.digi-nest.my.id';
+  static const String baseUrl = 'https://my-mirra.com';
+  //  static const String baseUrl = 'http://192.168.0.80:8080';
 
   static const String loginUrl = '$baseUrl/api/sign-in';
   static const String profileUpdate = '$baseUrl/api/profile/update';
@@ -43,6 +44,7 @@ class AppConstants {
   // purchase
   static const String purchasePDF = '$baseUrl/api/purchase/pdf';
   static const String salesPDF = '$baseUrl/api/sale/pdf';
+  static const String statusPurchase = '$baseUrl/api/detail/{purchaseId}';
 
   // warehouse
   static const String warehouses = '$baseUrl/api/warehouses';

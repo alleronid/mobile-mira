@@ -148,5 +148,16 @@
   "thisProducthasbatches": "This Product has batch and expired date",
   "addPromotion": "Add Promotional Price",
   "submit": "Submit",
-  "orangePay": "Orange Pay"
+  "orangePay": "Orange Pay",
+  "qrisDetailTitle": "Transaction Details",
+  "totalPaymentLabel": "Total Payment",
+  "validFor5Minutes": "Valid for 5 minutes",
+  "qrisScanInstruction": "Scan or download the QRIS to continue payment via E-Wallet or Mobile Banking",
+  "paymentSuccessShort": "Payment Success",
+  "paymentFailed": "Payment Failed",
+  "transactionProcessed": "Transaction processed successfully",
+  "ok": "OK",
+  "paymentSuccessPageTitle": "Payment Successful",
+  "totalLabel": "Total",
+  "thankYouPaymentReceived": "Thank you, your payment has been received."
 }

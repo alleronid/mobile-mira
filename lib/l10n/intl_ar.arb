@@ -147,5 +147,16 @@
     "thisProducthasbatches": "هذا المنتج له دفعة وتاريخ انتهاء الصلاحية",
     "addPromotion": "أضف السعر الترويجي",
     "submit": "إرسال",
-    "orangePay": "الدفع البرتقالي"
+    "orangePay": "الدفع البرتقالي",
+    "qrisDetailTitle": "تفاصيل المعاملة",
+    "totalPaymentLabel": "إجمالي الدفع",
+    "validFor5Minutes": "صالحة لمدة 5 دقائق",
+    "qrisScanInstruction": "امسح أو نزّل رمز QRIS للمتابعة بالدفع عبر المحفظة أو الخدمات المصرفية عبر الهاتف",
+    "paymentSuccessShort": "الدفع ناجح",
+    "paymentFailed": "فشل الدفع",
+    "transactionProcessed": "تمت معالجة المعاملة بنجاح",
+    "ok": "حسنًا",
+    "paymentSuccessPageTitle": "تم الدفع بنجاح",
+    "totalLabel": "الإجمالي",
+    "thankYouPaymentReceived": "شكرًا لك، لقد استلمنا دفعتك"
 }
