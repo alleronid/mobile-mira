@@ -37,9 +37,10 @@ class MoreLayout extends ConsumerWidget {
             : AppColor.whiteColor,
         child: ListView(
           children: [
-            // const Align(
-            //     alignment: Alignment.centerRight, child: ThemeChangeButton()),
-            // ThemeChangeButton(),
+            const Align(
+              alignment: Alignment.centerRight,
+              child: ThemeChangeButton(),
+            ),
             Gap(16.h),
             ProfileButton(
               title: S.of(context).adminProfile,
