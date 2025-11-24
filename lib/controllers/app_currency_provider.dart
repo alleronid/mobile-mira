@@ -8,8 +8,8 @@ final appcurrencyNotifierProvider =
 });
 
 class AppCurrencyProvider extends Notifier<String?> {
-  late String symbol;
-  late String currencyPosition;
+  String symbol = '';
+  String currencyPosition = 'Prefix';
   @override
   String? build() {
     init();
@@ -26,9 +26,9 @@ class AppCurrencyProvider extends Notifier<String?> {
     final formatter = NumberFormat("#,##0.00", "id_ID");
     final formatted = formatter.format(value);
     if (currencyPosition == 'Prefix') {
-      return "$symbol $formatted";
+      return symbol.isNotEmpty ? "$symbol $formatted" : formatted;
     } else {
-      return "$formatted $symbol";
+      return symbol.isNotEmpty ? "$formatted $symbol" : formatted;
     }
   }
 }

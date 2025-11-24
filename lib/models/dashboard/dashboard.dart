@@ -9,6 +9,7 @@ class DashboardInfo {
   final double purchaseDue;
   final int maxChartAmount;
   final List<PurchaseAndSaleChart> purchaseAndSaleChart;
+  final List<String> dates;
   DashboardInfo({
     required this.sale,
     required this.purchase,
@@ -16,6 +17,7 @@ class DashboardInfo {
     required this.purchaseDue,
     required this.maxChartAmount,
     required this.purchaseAndSaleChart,
+    required this.dates,
   });
 
   DashboardInfo copyWith({
@@ -25,6 +27,7 @@ class DashboardInfo {
     double? purchaseDue,
     int? maxChartAmount,
     List<PurchaseAndSaleChart>? purchaseAndSaleChart,
+    List<String>? dates,
   }) {
     return DashboardInfo(
       sale: sale ?? this.sale,
@@ -33,6 +36,7 @@ class DashboardInfo {
       purchaseDue: purchaseDue ?? this.purchaseDue,
       maxChartAmount: maxChartAmount ?? this.maxChartAmount,
       purchaseAndSaleChart: purchaseAndSaleChart ?? this.purchaseAndSaleChart,
+      dates: dates ?? this.dates,
     );
   }
 
@@ -45,6 +49,7 @@ class DashboardInfo {
       'max_chart_amount': maxChartAmount,
       'purchase_and_sale_chart':
           purchaseAndSaleChart.map((x) => x.toMap()).toList(),
+      'dates': dates,
     };
   }
 
@@ -61,6 +66,10 @@ class DashboardInfo {
           (x) => PurchaseAndSaleChart.fromMap(x as Map<String, dynamic>),
         ),
       ),
+      dates: List<String>.from(
+        (map['dates'] as List<dynamic>? ?? const [])
+            .map((x) => x.toString()),
+      ),
     );
   }
 
@@ -71,7 +80,7 @@ class DashboardInfo {
 
   @override
   String toString() {
-    return 'DashboardInfo(sale: $sale, purchase: $purchase, profit: $profit, purchase_due: $purchaseDue, max_chart_amount: $maxChartAmount, purchase_and_sale_chart: $purchaseAndSaleChart)';
+    return 'DashboardInfo(sale: $sale, purchase: $purchase, profit: $profit, purchase_due: $purchaseDue, max_chart_amount: $maxChartAmount, purchase_and_sale_chart: $purchaseAndSaleChart, dates: $dates)';
   }
 
   @override
@@ -83,7 +92,8 @@ class DashboardInfo {
         other.profit == profit &&
         other.purchaseDue == purchaseDue &&
         other.maxChartAmount == maxChartAmount &&
-        listEquals(other.purchaseAndSaleChart, purchaseAndSaleChart);
+        listEquals(other.purchaseAndSaleChart, purchaseAndSaleChart) &&
+        listEquals(other.dates, dates);
   }
 
   @override
@@ -93,7 +103,8 @@ class DashboardInfo {
         profit.hashCode ^
         purchaseDue.hashCode ^
         maxChartAmount.hashCode ^
-        purchaseAndSaleChart.hashCode;
+        purchaseAndSaleChart.hashCode ^
+        dates.hashCode;
   }
 }
 

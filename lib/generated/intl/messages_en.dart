@@ -149,7 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "productUnit": MessageLookupByLibrary.simpleMessage("Product Unit"),
     "products": MessageLookupByLibrary.simpleMessage("Products"),
     "profileImage": MessageLookupByLibrary.simpleMessage("Profile Image"),
-    "profit": MessageLookupByLibrary.simpleMessage("Profit"),
+    "profit": MessageLookupByLibrary.simpleMessage("Net Profit"),
     "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
     "purchaseAndSale": MessageLookupByLibrary.simpleMessage(
       "Purchase And Sale",
@@ -206,6 +206,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "to": MessageLookupByLibrary.simpleMessage("To"),
     "todaysSale": MessageLookupByLibrary.simpleMessage("Today\'s Sale"),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
     "totalAmount": MessageLookupByLibrary.simpleMessage("Total Amount"),
     "totalCashReceived": MessageLookupByLibrary.simpleMessage(
       "Total Cash Received",

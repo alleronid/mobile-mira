@@ -89,14 +89,19 @@ class S {
     return Intl.message('Yearly', name: 'yearly', desc: '', args: []);
   }
 
-  /// `Profit`
+  /// `Net Profit`
   String get profit {
-    return Intl.message('Profit', name: 'profit', desc: '', args: []);
+    return Intl.message('Net Profit', name: 'profit', desc: '', args: []);
   }
 
   /// `Sale`
   String get sale {
     return Intl.message('Sale', name: 'sale', desc: '', args: []);
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message('Total', name: 'total', desc: '', args: []);
   }
 
   /// `Purchase`

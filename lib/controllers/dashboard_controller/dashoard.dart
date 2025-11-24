@@ -26,7 +26,6 @@ class DashboardController extends StateNotifier<AsyncValue<DashboardInfo>> {
     } catch (e, stackTrace) {
       debugPrint(e.toString());
       state = AsyncError(e.toString(), stackTrace);
-      throw stackTrace;
     }
   }
 }

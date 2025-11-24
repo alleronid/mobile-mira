@@ -33,6 +33,13 @@ class PurchaseAndSaleGraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double divisor = getDivisor(dashboardInfo.maxChartAmount.toDouble());
+    final String unitSuffix = getNumberType(dashboardInfo.maxChartAmount.toDouble());
+    final double maxY = dashboardInfo.maxChartAmount.toDouble() / divisor;
+    final double interval = getInterval(maxY);
+    final List<String> labels = dashboardInfo.dates.isNotEmpty
+        ? dashboardInfo.dates
+        : monthList;
     return Container(
       color: AdaptiveTheme.of(context).mode.isDark
           ? AppColor.darkBackgroundColor
@@ -117,13 +124,12 @@ class PurchaseAndSaleGraph extends StatelessWidget {
               majorGridLines: MajorGridLines(width: 0),
             ),
             primaryYAxis: NumericAxis(
-              labelFormat:
-                  '{value}${getNumberType(dashboardInfo.maxChartAmount.toDouble())}',
-              maximum: 100,
+              labelFormat: '{value}$unitSuffix',
+              maximum: maxY > 0 ? maxY : 1,
               minimum: 0,
               majorGridLines:
                   const MajorGridLines(width: 1, dashArray: <double>[4, 4]),
-              interval: 25,
+              interval: interval,
             ),
             tooltipBehavior: TooltipBehavior(
               enable: true,
@@ -145,11 +151,9 @@ class PurchaseAndSaleGraph extends StatelessWidget {
                     .map((index, e) => MapEntry(
                           index,
                           ChartData(
-                            monthList[index],
-                            formatNumber(e.sale),
-                            formatNumber(
-                              e.purchase,
-                            ),
+                            index < labels.length ? labels[index] : monthList[index],
+                            formatNumber(e.sale, divisor),
+                            formatNumber(e.purchase, divisor),
                           ),
                         ))
                     .values
@@ -165,11 +169,9 @@ class PurchaseAndSaleGraph extends StatelessWidget {
                     .map((index, e) => MapEntry(
                           index,
                           ChartData(
-                            monthList[index],
-                            formatNumber(e.sale),
-                            formatNumber(
-                              e.purchase,
-                            ),
+                            index < labels.length ? labels[index] : monthList[index],
+                            formatNumber(e.sale, divisor),
+                            formatNumber(e.purchase, divisor),
                           ),
                         ))
                     .values
@@ -190,27 +192,38 @@ class PurchaseAndSaleGraph extends StatelessWidget {
   }
 
   String getNumberType(double value) {
-    if (value >= 1000 && value < 1000000) {
-      double result = value / 1000.0;
-      return 'K';
-    } else if (value >= 1000000) {
-      double result = value / 1000000.0;
+    if (value >= 1000000) {
       return 'M';
+    } else if (value >= 1000) {
+      return 'K';
     } else {
       return '';
     }
   }
 
-  double formatNumber(double value) {
-    if (value >= 1000 && value < 1000000) {
-      double result = value / 1000.0;
-      return result;
-    } else if (value >= 1000000) {
-      double result = value / 1000000.0;
-      return result;
+  double formatNumber(double value, double divisor) {
+    return value / divisor;
+  }
+
+  double getDivisor(double value) {
+    if (value >= 1000000) {
+      return 1000000.0;
+    } else if (value >= 1000) {
+      return 1000.0;
     } else {
-      return value;
+      return 1.0;
     }
+  }
+
+  double getInterval(double maxY) {
+    final double raw = maxY / 4;
+    if (raw <= 1) return 1;
+    if (raw <= 5) return 5;
+    if (raw <= 10) return 10;
+    if (raw <= 25) return 25;
+    if (raw <= 50) return 50;
+    if (raw <= 100) return 100;
+    return raw.ceilToDouble();
   }
 }
 

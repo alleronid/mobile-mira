@@ -199,6 +199,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "to": MessageLookupByLibrary.simpleMessage("إلى"),
     "todaysSale": MessageLookupByLibrary.simpleMessage("مبيعات اليوم"),
+    "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
     "totalAmount": MessageLookupByLibrary.simpleMessage("المبلغ الإجمالي"),
     "totalCashReceived": MessageLookupByLibrary.simpleMessage(
       "  المبلغ النقدي الإجمالي المستلم",

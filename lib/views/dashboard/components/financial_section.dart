@@ -23,14 +23,14 @@ class FinancialSection extends ConsumerWidget {
   static List<FinancialModel> getFinancials(BuildContext context) {
     return [
       FinancialModel(
-        title: S.of(context).sale,
+        title: '${S.of(context).total} ${S.of(context).sale}',
         amount: "৳ 0.00",
-        icon: Assets.svgs.import,
+        icon: Assets.svgs.totalSales,
       ),
       FinancialModel(
         title: S.of(context).purchase,
         amount: "৳ 0.00",
-        icon: Assets.svgs.export,
+        icon: Assets.svgs.purchase,
       ),
       FinancialModel(
         title: S.of(context).profit,

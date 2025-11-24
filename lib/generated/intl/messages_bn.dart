@@ -205,6 +205,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "to": MessageLookupByLibrary.simpleMessage("পর্যন্ত"),
     "todaysSale": MessageLookupByLibrary.simpleMessage("আজকের বিক্রয়"),
+    "total": MessageLookupByLibrary.simpleMessage("মোট"),
     "totalAmount": MessageLookupByLibrary.simpleMessage("সর্বমোট পরিমাণ"),
     "totalCashReceived": MessageLookupByLibrary.simpleMessage(
       "মোট নগদ প্রাপ্ত",

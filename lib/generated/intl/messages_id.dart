@@ -153,7 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "productUnit": MessageLookupByLibrary.simpleMessage("Satuan Produk"),
     "products": MessageLookupByLibrary.simpleMessage("Produk"),
     "profileImage": MessageLookupByLibrary.simpleMessage("Gambar Profil"),
-    "profit": MessageLookupByLibrary.simpleMessage("Laba"),
+    "profit": MessageLookupByLibrary.simpleMessage("Laba Bersih"),
     "purchase": MessageLookupByLibrary.simpleMessage("Pembelian"),
     "purchaseAndSale": MessageLookupByLibrary.simpleMessage(
       "Pembelian & Penjualan",
@@ -208,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "to": MessageLookupByLibrary.simpleMessage("Ke"),
     "todaysSale": MessageLookupByLibrary.simpleMessage("Penjualan Hari Ini"),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
     "totalAmount": MessageLookupByLibrary.simpleMessage("Total"),
     "totalCashReceived": MessageLookupByLibrary.simpleMessage(
       "Total Tunai Diterima",

@@ -123,6 +123,12 @@ class $AssetsSvgsGen {
   /// File path: assets/svgs/import.svg
   String get import => 'assets/svgs/import.svg';
 
+  /// File path: assets/svgs/total_sales.svg
+  String get totalSales => 'assets/svgs/total_sales.svg';
+
+    /// File path: assets/svgs/total_sales.svg
+  String get purchase => 'assets/svgs/purchase.svg';
+
   /// File path: assets/svgs/location.svg
   String get location => 'assets/svgs/location.svg';
 
@@ -275,7 +281,9 @@ class $AssetsSvgsGen {
         sms,
         trash,
         upload,
-        walletAdd
+        walletAdd,
+        totalSales,
+        purchase
       ];
 }
 
