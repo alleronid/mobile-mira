@@ -24,8 +24,8 @@ class LoginBG extends StatelessWidget {
             children: [
               Gap(70.h),
               SizedBox(
-                height: 50.h,
-                width: 250.w,
+                height: 60.h,
+                width: 280.w,
                 child: SvgPicture.asset(
                   AdaptiveTheme.of(context).mode.isDark
                       ? Assets.svgs.logoWhite
@@ -34,7 +34,6 @@ class LoginBG extends StatelessWidget {
               )
                   .animate(
                     delay: 400.ms,
-                    // autoPlay: false,
                   )
                   .slideY(
                     begin: 6.5,
