@@ -41,25 +41,28 @@ class _SplashLayoutState extends ConsumerState<SplashLayout> {
 
   @override
   Widget build(BuildContext context) {
-    // Follow this instruction
-    // logo height 56
-    // logo width 248
-
     return Scaffold(
-      body: SizedBox(
-        width: double.infinity,
-        child: SvgPicture.asset(
-          AdaptiveTheme.of(context).mode.isDark
-              ? Assets.svgs.logoWhite
-              : Assets.svgs.logoblack,
-          height: 50.h,
-          width: 250.w,
+      body: Center(
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                AdaptiveTheme.of(context).mode.isDark
+                    ? Assets.svgs.logoWhite
+                    : Assets.svgs.logoblack,
+                height: 60.h,
+                width: 280.w,
+              ),
+            ],
+          ),
         ),
       )
           .animate(autoPlay: true)
           .slideY(
-            begin: 10.0,
-            end: 8.0,
+            begin: 1.5,
+            end: 0.0,
             duration: const Duration(milliseconds: 1000),
           )
           .fadeIn(
