@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 70" width="280" height="70">
+  <defs>
+    <style>
+      .letter-m { fill: #FFD32D; }
+      .letter-irra { fill: #1565C0; }
+      .tagline { fill: #1565C0; font-size: 8px; font-family: Arial, sans-serif; letter-spacing: 2px; }
+    </style>
+  </defs>
+  
+  <!-- Letter M (Kuning) -->
+  <path class="letter-m" d="M 20 15 L 20 50 L 28 50 L 28 28 L 38 45 L 46 45 L 56 28 L 56 50 L 64 50 L 64 15 L 54 15 L 42 35 L 30 15 Z"/>
+  
+  <!-- Letter i (Biru) -->
+  <circle class="letter-irra" cx="78" cy="20" r="4"/>
+  <rect class="letter-irra" x="74" y="27" width="8" height="23" rx="2"/>
+  
+  <!-- Letter r (Biru) -->
+  <path class="letter-irra" d="M 95 27 L 95 50 L 103 50 L 103 35 Q 103 27 115 27 L 115 27 Q 115 27 115 27 L 115 27 L 115 20 Q 103 20 103 27 Z"/>
+  
+  <!-- Letter r (Biru) -->
+  <path class="letter-irra" d="M 125 27 L 125 50 L 133 50 L 133 35 Q 133 27 145 27 L 145 27 Q 145 27 145 27 L 145 27 L 145 20 Q 133 20 133 27 Z"/>
+  
+  <!-- Letter a (Biru) -->
+  <path class="letter-irra" d="M 165 27 Q 155 27 155 37 Q 155 47 165 47 Q 170 47 173 44 L 173 47 Q 173 52 165 52 Q 160 52 157 50 L 155 56 Q 160 59 167 59 Q 181 59 181 47 L 181 27 L 173 27 L 173 30 Q 170 27 165 27 Z M 165 33 Q 173 33 173 40 Q 173 47 165 47 Q 163 47 163 40 Q 163 33 165 33 Z"/>
+  
+  <!-- Tagline -->
+  <text class="tagline" x="195" y="35">TEMAN SETIA</text>
+  <text class="tagline" x="195" y="47">USAHA ANDA</text>
+</svg>
