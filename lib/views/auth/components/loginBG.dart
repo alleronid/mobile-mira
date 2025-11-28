@@ -5,6 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:readypos_flutter/gen/assets.gen.dart';
+import 'package:readypos_flutter/config/app_color.dart';
+import 'package:readypos_flutter/config/app_text.dart';
+import 'package:readypos_flutter/generated/l10n.dart';
 
 class LoginBG extends StatelessWidget {
   const LoginBG({
@@ -23,13 +26,16 @@ class LoginBG extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Gap(70.h),
-              SizedBox(
-                height: 60.h,
-                width: 280.w,
-                child: SvgPicture.asset(
-                  AdaptiveTheme.of(context).mode.isDark
-                      ? Assets.svgs.logoWhite
-                      : Assets.svgs.logoblack,
+              Gap(70.h),
+              Center(
+                child: SizedBox(
+                  height: 110.h,
+                  width: 380.w,
+                  child: Assets.pngs.logos.image(
+                    height: 110.h,
+                    width: 380.w,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               )
                   .animate(
@@ -40,18 +46,26 @@ class LoginBG extends StatelessWidget {
                     end: 0.0,
                     duration: const Duration(milliseconds: 1000),
                   ),
-              Gap(28.h),
-              SizedBox(
-                height: 150.h,
-                width: 210.w,
-                child: SvgPicture.asset(
-                  Assets.svgs.loginBG,
+              Gap(17.h),
+              Text(
+                S.of(context).mirraTagline,
+                style: AppTextStyle.largeBody.copyWith(
+                  color: AppColor.primaryColor,
+                  letterSpacing: 1.2,
                 ),
-              ).animate().slideY(
-                    begin: 6,
-                    end: 0.0,
-                    duration: const Duration(milliseconds: 1000),
-                  )
+              ),
+              Gap(28.h),
+              // SizedBox(
+              //   height: 150.h,
+              //   width: 210.w,
+              //   child: SvgPicture.asset(
+              //     Assets.svgs.loginBG,
+              //   ),
+              // ).animate().slideY(
+              //       begin: 6,
+              //       end: 0.0,
+              //       duration: const Duration(milliseconds: 1000),
+              //     )
             ],
           ),
         ),

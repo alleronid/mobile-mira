@@ -232,7 +232,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "warehouses": MessageLookupByLibrary.simpleMessage("ওয়্যারহাউস"),
     "weekly": MessageLookupByLibrary.simpleMessage("সাপ্তাহিক"),
     "welcomeToReadyPos": MessageLookupByLibrary.simpleMessage(
-      "রেডিপোসে স্বাগতম",
+      "মির্রাতে স্বাগতম",
+    ),
+    "mirraTagline": MessageLookupByLibrary.simpleMessage(
+      "আপনার বিশ্বস্ত ব্যবসায়িক সঙ্গী",
     ),
     "yearly": MessageLookupByLibrary.simpleMessage("বার্ষিক"),
   };

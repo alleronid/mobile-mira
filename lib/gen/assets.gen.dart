@@ -22,6 +22,10 @@ class $AssetsAnimationsGen {
 class $AssetsPngsGen {
   const $AssetsPngsGen();
 
+  /// File path: assets/pngs/logo-mirra.png
+   AssetGenImage get logos => const AssetGenImage('assets/pngs/mirra-logo.png');
+
+
   /// File path: assets/pngs/Draft.png
   AssetGenImage get draft => const AssetGenImage('assets/pngs/Draft.png');
 

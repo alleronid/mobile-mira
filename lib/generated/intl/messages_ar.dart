@@ -226,7 +226,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "warehouses": MessageLookupByLibrary.simpleMessage("المستودعات"),
     "weekly": MessageLookupByLibrary.simpleMessage("أسبوعيا"),
     "welcomeToReadyPos": MessageLookupByLibrary.simpleMessage(
-      "مرحبًا بك في ReadyPos",
+      "مرحبًا بك في Mirra",
+    ),
+    "mirraTagline": MessageLookupByLibrary.simpleMessage(
+      "شريك عملك الموثوق",
     ),
     "yearly": MessageLookupByLibrary.simpleMessage("سنويا"),
   };

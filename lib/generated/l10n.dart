@@ -399,6 +399,16 @@ class S {
     return Intl.message('Email', name: 'email', desc: '', args: []);
   }
 
+  /// `Brand tagline`
+  String get mirraTagline {
+    return Intl.message(
+      'TEMAN SETIA USAHA ANDA',
+      name: 'mirraTagline',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Enter email address`
   String get enterEmailAddress {
     return Intl.message(

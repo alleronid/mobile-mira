@@ -1,7 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:readypos_flutter/gen/assets.gen.dart';
 
 class LogoSection extends StatelessWidget {
@@ -16,11 +15,12 @@ class LogoSection extends StatelessWidget {
       children: [
         Container(
           padding: EdgeInsets.only(bottom: 1.w, right: 1.w, top: 1.h),
-          child: SvgPicture.asset(
-            AdaptiveTheme.of(context).mode.isDark
-                ? Assets.svgs.logoWhite
-                : Assets.svgs.logoblack,
-            fit: BoxFit.fill,
+          child: SizedBox(
+            height: 32.h,
+            width: 120.w,
+            child: Assets.pngs.logos.image(
+              fit: BoxFit.contain,
+            ),
           ),
         ),
       ],

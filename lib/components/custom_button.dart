@@ -16,6 +16,7 @@ class CustomButton extends StatelessWidget {
     required this.text,
     this.isBackgrounColor = true,
     this.buttonColor = AppColor.primaryColor,
+    this.textColor = Colors.white,
   });
   Function onPressed;
   final bool isEnabled;
@@ -23,6 +24,7 @@ class CustomButton extends StatelessWidget {
   final bool isArrowRight;
   final bool isBackgrounColor;
   final Color buttonColor;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class CustomButton extends StatelessWidget {
                 ? buttonColor
                 : const Color(0xffF3F4F6)
             : AppColor.primaryColor.withOpacity(0.3),
-        foregroundColor: AppColor.whiteColor,
+        foregroundColor: textColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.r),
         ),
@@ -48,6 +50,7 @@ class CustomButton extends StatelessWidget {
                   text,
                   style: AppTextStyle.normalBody.copyWith(
                     fontWeight: FontWeight.w700,
+                    color: textColor,
                   ),
                 ),
                 Gap(12.w),
@@ -56,8 +59,8 @@ class CustomButton extends StatelessWidget {
                   transform: Matrix4.identity()..scale(-1.0, 1.0),
                   child: SvgPicture.asset(
                     Assets.svgs.arrowLeft,
-                    colorFilter: const ColorFilter.mode(
-                      Colors.white,
+                    colorFilter: ColorFilter.mode(
+                      textColor,
                       BlendMode.srcIn,
                     ),
                   ),
@@ -68,7 +71,7 @@ class CustomButton extends StatelessWidget {
               text,
               style: AppTextStyle.normalBody.copyWith(
                 fontWeight: FontWeight.w700,
-                color: isBackgrounColor ? Colors.white : Colors.black,
+                color: isBackgrounColor ? textColor : Colors.black,
               ),
             ),
     );

@@ -76,29 +76,73 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
           ),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Center(
+              child: ShaderMask(
+                shaderCallback: (bounds) => const LinearGradient(
+                  colors: [Color(0xFF6FA56C), AppColor.secondaryColor],
+                ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
+                blendMode: BlendMode.srcIn,
+                child: Text(
+                  "Selamat Datang!",
+                  style: AppTextStyle.extraLargeBody.copyWith(fontSize: 28.sp, color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            Gap(8.h),
+            Center(
+              child: Text(
+                "Masuk ke dashboard Mirra Anda",
+                style: AppTextStyle.normalBody.copyWith(color: AppColor.borderColor),
+              ),
+            ),
+            Gap(24.h),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Login",
-                  style: AppTextStyle.extraLargeBody,
+                  "Email",
+                  style: AppTextStyle.normalBody.copyWith(color: AppColor.primaryColor, fontWeight: FontWeight.w700),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5.0),
+                  child: Icon(
+                    Icons.star,
+                    color: Colors.red,
+                    size: 8.w,
+                  ),
                 ),
               ],
             ),
-            Gap(24.h),
-            textFieldHeader(text: "Email"),
             Gap(8.h),
             CustomTextField(
               controller: _emailController,
-              hint: "Enter Email",
+              hint: "nama@email.com",
             ),
             Gap(24.h),
-            textFieldHeader(text: "Password"),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Password",
+                  style: AppTextStyle.normalBody.copyWith(color: AppColor.primaryColor, fontWeight: FontWeight.w700),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5.0),
+                  child: Icon(
+                    Icons.star,
+                    color: Colors.red,
+                    size: 8.w,
+                  ),
+                ),
+              ],
+            ),
             Gap(8.h),
             CustomTextField(
               controller: _passwordController,
               isPassword: true,
               obscureText: true,
-              hint: "Enter Password",
+              hint: "Masukkan password Anda",
             ),
             Gap(32.h),
             ref.watch(authControllerProvider)
@@ -109,8 +153,10 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
                     width: double.infinity,
                     // height: context.isTabletLandsCape ? 90.h : 48.h,
                     child: CustomButton(
-                      text: "Login",
+                      text: "Masuk",
                       isEnabled: isEnabled,
+                      buttonColor: AppColor.secondaryColor,
+                      textColor: AppColor.primaryColor,
                       onPressed: () {
                         FocusScope.of(context).unfocus();
                         if (isEnabled) {
@@ -131,6 +177,7 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
                       },
                     ),
                   ),
+            
           ]),
         ),
       ),

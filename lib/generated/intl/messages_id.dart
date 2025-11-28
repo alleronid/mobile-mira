@@ -235,7 +235,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "warehouses": MessageLookupByLibrary.simpleMessage("Gudang"),
     "weekly": MessageLookupByLibrary.simpleMessage("Mingguan"),
     "welcomeToReadyPos": MessageLookupByLibrary.simpleMessage(
-      "Selamat datang di ReadyPos",
+      "Selamat datang di Mirra",
+    ),
+    "mirraTagline": MessageLookupByLibrary.simpleMessage(
+      "TEMAN SETIA USAHA ANDA",
     ),
     "yearly": MessageLookupByLibrary.simpleMessage("Tahunan"),
   };
