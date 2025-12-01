@@ -36,10 +36,23 @@ class AuthService implements AuthRepository {
   }
 
   @override
-  Future<Response> profileUpdate({required Map<String, dynamic> data}) {
+  Future<Response> profileUpdate({required Map<String, dynamic> data}) async {
+    final map = Map<String, dynamic>.from(data);
+    if (map['image'] != null && map['image'] is String && (map['image'] as String).isNotEmpty) {
+      final path = map['image'] as String;
+      map['image'] = await MultipartFile.fromFile(
+        path,
+        filename: path.split(RegExp(r'[\\/]')).isNotEmpty
+            ? path.split(RegExp(r'[\\/]')).last
+            : 'profile_image.jpg',
+      );
+    } else {
+      map.remove('image');
+    }
+    final formData = FormData.fromMap(map);
     final response = ref
         .read(apiClientProvider)
-        .post(AppConstants.profileUpdate, data: data);
+        .post(AppConstants.profileUpdate, data: formData);
     return response;
   }
 
