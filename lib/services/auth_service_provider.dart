@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:readypos_flutter/utils/api_client.dart';
 import 'package:readypos_flutter/config/app_constants.dart';
 
@@ -15,6 +16,9 @@ abstract class AuthRepository {
   });
   Future<Response> passwordChange({
     required Map<String, dynamic> data,
+  });
+  Future<Response> forgotPassword({
+    required String email,
   });
   Future<Response> getAppCurrency();
 }
@@ -58,9 +62,28 @@ class AuthService implements AuthRepository {
 
   @override
   Future<Response> passwordChange({required Map<String, dynamic> data}) {
+    final map = Map<String, dynamic>.from(data);
+    try {
+      final authBox = Hive.box(AppConstants.authBox);
+      final user = authBox.get(AppConstants.userData);
+      final id = user != null ? user['id'] : null;
+      if (id != null) {
+        map['id'] = id;
+      }
+    } catch (_) {}
     final response = ref
         .read(apiClientProvider)
-        .put(AppConstants.passwordChange, data: data);
+        .put(AppConstants.passwordChange, data: map);
+    return response;
+  }
+
+  @override
+  Future<Response> forgotPassword({required String email}) async {
+    final response = await ref
+        .read(apiClientProvider)
+        .post(AppConstants.forgotPassword, data: {
+      'email': email,
+    });
     return response;
   }
 

@@ -9,6 +9,7 @@ class AppConstants {
   static const String loginUrl = '$baseUrl/sign-in';
   static const String profileUpdate = '$baseUrl/profile/update';
   static const String passwordChange = '$baseUrl/change/password';
+  static const String forgotPassword = '$baseUrl/forgot/password';
   static const String dashboard = '$baseUrl/dashboard';
   static const String posProducts = '$baseUrl/product/search';
   static const String customers = '$baseUrl/customer/search';

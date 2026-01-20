@@ -13,9 +13,7 @@ class ApiClient {
     addApiInterceptors(_dio);
   }
 
-  Map<String, dynamic> defaultHeaders = {
-    HttpHeaders.authorizationHeader: null,
-  };
+  Map<String, dynamic> defaultHeaders = {};
 
   Future<Response> get(String url, {Map<String, dynamic>? query}) async {
     return _dio.get(

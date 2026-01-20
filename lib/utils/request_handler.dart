@@ -6,9 +6,10 @@ import 'package:readypos_flutter/config/app_constants.dart';
 import 'package:readypos_flutter/utils/global_function.dart';
 
 void addApiInterceptors(Dio dio) {
-  dio.options.connectTimeout = const Duration(seconds: 20);
-  dio.options.receiveTimeout = const Duration(seconds: 10);
+  dio.options.connectTimeout = const Duration(seconds: 30);
+  dio.options.receiveTimeout = const Duration(seconds: 20);
   dio.options.headers['Accept'] = 'application/json';
+  
   // logger
   dio.interceptors.add(PrettyDioLogger(
     requestHeader: true,
@@ -26,7 +27,11 @@ void addApiInterceptors(Dio dio) {
       onRequest: (options, handler) {
         final authBox = Hive.box(AppConstants.authBox);
         final token = authBox.get(AppConstants.authToken);
-        options.headers['Authorization'] = "Bearer $token";
+        if (token != null && (token as String).isNotEmpty) {
+          options.headers['Authorization'] = "Bearer $token";
+        } else {
+          options.headers.remove('Authorization');
+        }
         handler.next(options);
       },
       onResponse: (response, handler) {
@@ -60,7 +65,22 @@ void addApiInterceptors(Dio dio) {
         }
         handler.next(response);
       },
-      onError: (error, handler) {
+      onError: (error, handler) async {
+        const maxRetries = 2;
+        final shouldRetry = error.type == DioExceptionType.connectionTimeout ||
+            error.type == DioExceptionType.receiveTimeout ||
+            error.type == DioExceptionType.connectionError;
+        if (shouldRetry) {
+          final retryCount = (error.requestOptions.extra['retryCount'] as int?) ?? 0;
+          if (retryCount < maxRetries) {
+            error.requestOptions.extra['retryCount'] = retryCount + 1;
+            await Future.delayed(Duration(seconds: 1 * (retryCount + 1)));
+            try {
+              final cloneResponse = await dio.fetch(error.requestOptions);
+              return handler.resolve(cloneResponse);
+            } catch (e) {}
+          }
+        }
         switch (error.type) {
           case DioExceptionType.connectionError:
           case DioExceptionType.connectionTimeout:

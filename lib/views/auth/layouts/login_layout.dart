@@ -10,8 +10,10 @@ import 'package:readypos_flutter/config/app_color.dart';
 import 'package:readypos_flutter/config/app_text.dart';
 import 'package:readypos_flutter/controllers/app_currency_provider.dart';
 import 'package:readypos_flutter/controllers/auth_controller/auth_controller.dart';
+import 'package:readypos_flutter/services/auth_service_provider.dart';
 import 'package:readypos_flutter/routes.dart';
 import 'package:readypos_flutter/utils/context_less_navigation.dart';
+import 'package:readypos_flutter/utils/global_function.dart';
 import 'package:readypos_flutter/views/auth/components/loginBG.dart';
 
 class LoginLayout extends ConsumerStatefulWidget {
@@ -24,6 +26,7 @@ class LoginLayout extends ConsumerStatefulWidget {
 class _LoginLayoutState extends ConsumerState<LoginLayout> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _forgotEmailController = TextEditingController();
   bool isEnabled = true;
   @override
   void initState() {
@@ -34,6 +37,7 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
       _emailController.text = "admin@example.com";
       _passwordController.text = "secret";
     }
+    _forgotEmailController.text = _emailController.text;
     // _emailController.text = "admin@example.com";
     // _passwordController.text = "secret";
   }
@@ -144,6 +148,20 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
               obscureText: true,
               hint: "Masukkan password Anda",
             ),
+            Gap(8.h),
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: _showForgotPasswordDialog,
+                child: Text(
+                  "Lupa Password?",
+                  style: AppTextStyle.normalBody.copyWith(
+                    color: AppColor.primaryColor,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ),
             Gap(32.h),
             ref.watch(authControllerProvider)
                 ? const Align(
@@ -206,6 +224,80 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
       //     ],
       //   ),
       // ),
+    );
+  }
+
+  void _showForgotPasswordDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        bool isLoading = false;
+        return StatefulBuilder(builder: (context, setState) {
+          return AlertDialog(
+            title: Text(
+              "Lupa Password",
+              style: AppTextStyle.title.copyWith(fontSize: 16.sp),
+            ),
+            content: SizedBox(
+              width: double.maxFinite,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Masukkan email terdaftar",
+                    style: AppTextStyle.normalBody.copyWith(
+                      color: AppColor.borderColor,
+                    ),
+                  ),
+                  Gap(12.h),
+                  CustomTextField(
+                    controller: _forgotEmailController,
+                    hint: "nama@email.com",
+                  ),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text("Batal"),
+              ),
+              isLoading
+                  ? const SizedBox(
+                      height: 24,
+                      width: 24,
+                      child: CircularProgressIndicator(),
+                    )
+                  : TextButton(
+                      onPressed: () async {
+                        final email = _forgotEmailController.text.trim();
+                        if (email.isEmpty) return;
+                        setState(() => isLoading = true);
+                        try {
+                          final res = await ref
+                              .read(authServiceProvider)
+                              .forgotPassword(email: email);
+                          if (res.statusCode == 200) {
+                            final msg = res.data is Map<String, dynamic>
+                                ? (res.data['message'] ?? 'Recovery email successfully send')
+                                : 'Recovery email successfully send';
+                            GlobalFunction.showCustomSnackbar(
+                              message: msg,
+                              isSuccess: true,
+                            );
+                            Navigator.pop(context);
+                          }
+                        } finally {
+                          setState(() => isLoading = false);
+                        }
+                      },
+                      child: const Text("Kirim"),
+                    ),
+            ],
+          );
+        });
+      },
     );
   }
 
